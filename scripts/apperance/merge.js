@@ -1,0 +1,1 @@
+//This srtipt is about animation of combining blocks

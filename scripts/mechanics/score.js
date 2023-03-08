@@ -1,0 +1,1 @@
+//This script is about updating current score and a high score

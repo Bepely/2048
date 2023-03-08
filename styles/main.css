@@ -1,0 +1,18 @@
+@import url("./layout.css");
+@import url("./text.css");
+@import url("./containers.css");
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#app {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  place-items: center;
+  grid-template-rows: 1fr 5fr 2fr;
+}

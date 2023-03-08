@@ -1,0 +1,1 @@
+//This script is about end result of the game WIN/LOSE screen

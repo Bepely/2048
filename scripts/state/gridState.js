@@ -1,0 +1,1 @@
+//This script is about a current state of the grid

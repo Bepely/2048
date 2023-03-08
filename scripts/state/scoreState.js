@@ -1,0 +1,1 @@
+//This script is about a state of the score

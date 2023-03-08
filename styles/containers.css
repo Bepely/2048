@@ -1,0 +1,20 @@
+/*Containers - are handlers for groups of huge elements*/
+.mainContainer{}
+
+.defaultContainer{}
+
+/*Cards - are handlers for small groups of elements*/
+.defaultCard{}
+
+.accentCard{}
+
+
+/*Different types of buttons*/
+button{}
+
+.defaultButton{}
+
+.rejectButton{}
+
+.aceptButton{}
+
