@@ -3,11 +3,13 @@
 import { setSvg } from "./elements";
 import { setMatrix } from "./mechanics/matrix";
 import { movement } from "./mechanics/movement";
-
-
+import { setDisplay } from "./apperance/mainDisplay";
+import { setGameDisplay } from "./apperance/gameDisplay";
 
 import "../styles/main.css";
 
 setSvg();
-setMatrix()
+setMatrix();
+setDisplay();
+setGameDisplay();
 movement();
