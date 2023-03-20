@@ -1,5 +1,6 @@
 //This script is about handling movement
 import { grid } from "../state/gridState";
+import { newBlock } from "./newBlock";
 
 //Make movement variables
 let size = 0;
@@ -12,15 +13,19 @@ export const movement = () => {
     switch (event.key) {
       case "ArrowLeft":
         moveLeft(matrix);
+        newBlock();
         break;
       case "ArrowUp":
         moveUp(matrix);
+        newBlock();
         break;
       case "ArrowRight":
         moveRight(matrix);
+        newBlock();
         break;
       case "ArrowDown":
         moveDown(matrix);
+        newBlock();
         break;
     }
     //update movement matrix
@@ -85,15 +90,16 @@ function moveUp(matrix) {
       }
     }
 
-    //combine adjacent equal blocks
+    //combine adjacent equal blocks and move them
     for (let i = newColumn.length - 1; i > 0; i--) {
       if (newColumn[i] === newColumn[i - 1]) {
         newColumn[i] *= 2;
         newColumn[i - 1] = 0;
+        i--;
       }
     }
 
-    //populate non 0 blocks again, after combining
+    //populate non 0 blocks again, after combining and moving
     let nonZeroBlocks = newColumn.filter((block) => block !== 0);
 
     //fill rest of the blocks with 0
@@ -170,6 +176,7 @@ function moveDown(matrix) {
       if (newColumn[i] === newColumn[i - 1]) {
         newColumn[i] *= 2;
         newColumn[i - 1] = 0;
+        i--;
       }
     }
 
