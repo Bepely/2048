@@ -1,1 +1,0 @@
-//This script is about combining blocks on a grid

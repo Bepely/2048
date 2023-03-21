@@ -15,6 +15,7 @@ export const setSvg = () => {
   return svg;
 };
 
+//line constructor
 export const getLine = (startX, startY, endX, endY) => {
   const line = document.createElementNS(svgNS, "line");
   line.setAttribute("x1", `${startX}`);
@@ -27,6 +28,7 @@ export const getLine = (startX, startY, endX, endY) => {
   return line;
 };
 
+//rect constructor
 export const getRect = (x, y, width, height) => {
   const rect = document.createElementNS(svgNS, "rect");
   rect.setAttribute("x", `${x}`);
@@ -39,11 +41,18 @@ export const getRect = (x, y, width, height) => {
   return rect;
 };
 
-export const getText1 = () => {
+//text constructor
+export const getText1 = (x, y) => {
   const text = document.createElementNS(svgNS, "text");
+  text.setAttribute("x", `${x}`);
+  text.setAttribute("y", `${y}`);
+  text.setAttribute("stroke", "black");
+  text.setAttribute("font-size", 15);
+
   return text;
 };
 
+//group constructor
 export const getGroup = () => {
   const group = document.createElementNS(svgNS, "g");
   return group;

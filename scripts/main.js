@@ -8,8 +8,17 @@ import { setGameDisplay } from "./apperance/gameDisplay";
 
 import "../styles/main.css";
 
+//init svg element
 setSvg();
+
+//init matrix of a game
 setMatrix();
+
+//init main display
 setDisplay();
+
+//init game display
 setGameDisplay();
+
+//movement controller
 movement();
