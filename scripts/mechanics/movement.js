@@ -16,27 +16,29 @@ export const movement = () => {
   //create a movement matrix
   let matrix = grid.getMatrix();
   size = matrix.length;
+  bridge();
 
   //detect and address key inputs
   document.addEventListener("keydown", (event) => {
     switch (event.key) {
       case "ArrowLeft":
         moveLeft(matrix);
-        newBlock();
+        
         break;
       case "ArrowUp":
         moveUp(matrix);
-        newBlock();
+        
         break;
       case "ArrowRight":
         moveRight(matrix);
-        newBlock();
+      
         break;
       case "ArrowDown":
         moveDown(matrix);
-        newBlock();
+        
         break;
     }
+    newBlock();
     bridge();
     //update movement matrix
     matrix = grid.getMatrix();

@@ -1,43 +1,40 @@
-//move up script
 import { grid } from "../../state/gridState";
 
 export const moveUp = (matrix) => {
   const size = matrix.length;
-  //create a new matrix
-  const newMatrix = [];
 
   //iterate columns
   for (let j = 0; j < size; j++) {
-    let newColumn = [];
-
+    let nonZeroBlocks = [];
     //populate non 0 blocks first in the column
-    for (let i = size - 1; i >= 0; i--) {
+    for (let i = 0; i < size; i++) {
       if (matrix[i][j] !== 0) {
-        newColumn.push(matrix[i][j]);
+        nonZeroBlocks.push(matrix[i][j]);
       }
     }
 
-    //combine adjacent equal blocks and move them
-    for (let i = newColumn.length - 1; i > 0; i--) {
-      if (newColumn[i] === newColumn[i - 1]) {
-        newColumn[i] *= 2;
-        newColumn[i - 1] = 0;
-        i--;
+    //combine adjacent equal blocks
+    for (let i = 0; i < nonZeroBlocks.length - 1; i++) {
+      if (nonZeroBlocks[i] === nonZeroBlocks[i + 1]) {
+        nonZeroBlocks[i] *= 2;
+        nonZeroBlocks[i + 1] = 0;
       }
     }
 
-    //populate non 0 blocks again, after combining and moving
-    let nonZeroBlocks = newColumn.filter((block) => block !== 0);
+    //populate non 0 blocks again, after combining
+    nonZeroBlocks = nonZeroBlocks.filter((block) => block !== 0);
 
     //fill rest of the blocks with 0
     while (nonZeroBlocks.length < size) {
-      nonZeroBlocks.unshift(0);
+      nonZeroBlocks.push(0);
     }
 
-    //push updated column to a matrix
-    newMatrix.push(nonZeroBlocks.reverse());
+    //update column in the original matrix
+    for (let i = 0; i < size; i++) {
+      matrix[i][j] = nonZeroBlocks[i];
+    }
   }
 
-  //update a "true" matrix
-  grid.setMatrix(newMatrix);
+  //update the grid with the updated matrix
+  grid.setMatrix(matrix);
 };
