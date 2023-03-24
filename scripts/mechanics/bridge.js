@@ -1,6 +1,7 @@
 //This script is about showing matrix on a display
 
 import { grid } from "../state/gridState";
+import { colorBlock } from "../apperance/block";
 
 export const bridge = () => {
   const matrix = grid.getMatrix();
@@ -19,6 +20,7 @@ export const bridge = () => {
       } else {
         blockTexts[counter].innerHTML = "";
       }
+      colorBlock(blockBacks[counter], matrix[i][j]);
     }
   }
 };
