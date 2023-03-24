@@ -9,6 +9,13 @@ export const newBlock = () => {
   let randomRow = 0;
   let blockValue = 2;
 
+  // Generate a random number between 0 and 1
+  const randomNumber = Math.random();
+  // Assign the number 4 with 40% probability
+  if (randomNumber > 0.6) {
+    blockValue = 4;
+  }
+
   //generate random cell coord
   const setRandomBlock = () => {
     let availableCells = [];

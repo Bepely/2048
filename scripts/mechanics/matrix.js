@@ -17,9 +17,9 @@ export const setMatrix = () => {
     matrix.push([]);
     for (let j = 0; j < 4; j++) {
       if (i === coord1[0] && j === coord1[1]) {
-        matrix[i].push(2);
+        matrix[i].push(Math.random() > 0.6 ? 4 : 2);
       } else if (i === coord2[0] && j === coord2[1]) {
-        matrix[i].push(2);
+        matrix[i].push(Math.random() > 0.6 ? 4 : 2);
       } else {
         matrix[i].push(0);
       }
