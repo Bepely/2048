@@ -3,21 +3,26 @@ import { grid } from "../../state/gridState";
 export const moveUp = (matrix) => {
   const size = matrix.length;
 
-  //iterate columns
-  for (let j = 0; j < size; j++) {
+  //transpose the matrix
+  const transposedMatrix = matrix[0].map((col, i) =>
+    matrix.map((row) => row[i])
+  );
+
+  //iterate rows
+  for (let i = 0; i < size; i++) {
     let nonZeroBlocks = [];
-    //populate non 0 blocks first in the column
-    for (let i = 0; i < size; i++) {
-      if (matrix[i][j] !== 0) {
-        nonZeroBlocks.push(matrix[i][j]);
+    //populate non 0 blocks first in the row
+    for (let j = 0; j < size; j++) {
+      if (transposedMatrix[i][j] !== 0) {
+        nonZeroBlocks.push(transposedMatrix[i][j]);
       }
     }
 
     //combine adjacent equal blocks
-    for (let i = 0; i < nonZeroBlocks.length - 1; i++) {
-      if (nonZeroBlocks[i] === nonZeroBlocks[i + 1]) {
-        nonZeroBlocks[i] *= 2;
-        nonZeroBlocks[i + 1] = 0;
+    for (let j = 0; j < nonZeroBlocks.length - 1; j++) {
+      if (nonZeroBlocks[j] === nonZeroBlocks[j + 1]) {
+        nonZeroBlocks[j] *= 2;
+        nonZeroBlocks[j + 1] = 0;
       }
     }
 
@@ -29,12 +34,17 @@ export const moveUp = (matrix) => {
       nonZeroBlocks.push(0);
     }
 
-    //update column in the original matrix
-    for (let i = 0; i < size; i++) {
-      matrix[i][j] = nonZeroBlocks[i];
+    //update row in the transposed matrix 
+    for (let j = 0; j < size; j++) {
+      transposedMatrix[i][j] = nonZeroBlocks[j];
     }
   }
 
+  //transpose the matrix back to original form
+  const newMatrix = transposedMatrix[0].map((col, i) =>
+    transposedMatrix.map((row) => row[i])
+  );
+
   //update the grid with the updated matrix
-  grid.setMatrix(matrix);
+  grid.setMatrix(newMatrix);
 };

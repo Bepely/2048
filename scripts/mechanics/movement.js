@@ -2,7 +2,6 @@
 import { grid } from "../state/gridState";
 import { newBlock } from "./newBlock";
 
-
 import { moveDown } from "./movement/down";
 import { moveUp } from "./movement/up";
 import { moveLeft } from "./movement/left";
@@ -24,25 +23,23 @@ export const movement = () => {
     switch (event.key) {
       case "ArrowLeft":
         moveLeft(matrix);
-        
         break;
       case "ArrowUp":
         moveUp(matrix);
-        
         break;
       case "ArrowRight":
         moveRight(matrix);
-      
         break;
       case "ArrowDown":
         moveDown(matrix);
-        
         break;
     }
-    newBlock();
-    bridge();
-    //update movement matrix
-    matrix = grid.getMatrix();
-    console.log(grid.getMatrix());
+
+    if (matrix !== grid.getMatrix()) {
+      newBlock();
+      bridge();
+      //update movement matrix
+      matrix = grid.getMatrix();
+    }
   });
 };
