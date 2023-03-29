@@ -1,4 +1,4 @@
-08.05.2023  
+08.03.2023  
 2048 game built with Vanila js & SVG
 
 Main challenge is to make game display completely within SVG
