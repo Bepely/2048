@@ -8,6 +8,11 @@ export const grid = {
     return grid.matrix;
   },
 
+  currentProcess: 0,
+  setCurrentProcess: (value) => {
+    grid.currentProcess = value;
+  },
+
   svg: {
     getGameField: () => {
       return document.getElementById("gameField");
@@ -16,10 +21,10 @@ export const grid = {
       return document.querySelectorAll(".blockGroup");
     },
     getAllBlockBacks: () => {
-      return document.querySelectorAll(".blockBack")
+      return document.querySelectorAll(".blockBack");
     },
     getAllBlockTexts: () => {
-      return document.querySelectorAll(".blockText")
-    }
+      return document.querySelectorAll(".blockText");
+    },
   },
 };

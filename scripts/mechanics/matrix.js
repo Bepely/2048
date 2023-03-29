@@ -25,6 +25,5 @@ export const setMatrix = () => {
       }
     }
   }
-
   grid.setMatrix(matrix);
 };

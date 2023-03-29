@@ -25,7 +25,6 @@ export const moveRight = (matrix) => {
         newRow[j] *= 2;
         updateScore(newRow[j]);
         newRow[j + 1] = 0;
-        console.log(score.currentScore)
       }
     }
 

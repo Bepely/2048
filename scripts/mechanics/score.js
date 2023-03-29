@@ -1,5 +1,8 @@
 //This script is about updating current score and a high score
 import { score } from "../state/scoreState";
+import { setMatrix } from "./matrix";
+import { bridge } from "./bridge";
+import { movement } from "./movement";
 
 export const updateScore = (newScore) => {
   //get score elements
@@ -19,4 +22,15 @@ export const updateScore = (newScore) => {
 
   //update current score text
   currentScoreElement.innerText = score.currentScore;
+};
+
+//set restart button
+export const resetCurrentScoreBtn = () => {
+  document.getElementById("resetScoreButton").addEventListener("click", () => {
+    score.resetCurrentScore();
+    updateScore(0);
+    setMatrix();
+    movement();
+    bridge();
+  });
 };

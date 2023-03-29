@@ -26,7 +26,6 @@ export const moveUp = (matrix) => {
         nonZeroBlocks[j] *= 2;
         updateScore(nonZeroBlocks[j]);
         nonZeroBlocks[j + 1] = 0;
-        console.log(score.currentScore);
       }
     }
 
