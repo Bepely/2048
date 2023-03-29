@@ -1,4 +1,6 @@
 import { grid } from "../../state/gridState";
+import { score } from "../../state/scoreState";
+import { updateScore } from "../score";
 
 export const moveDown = (matrix) => {
   const size = matrix.length;
@@ -22,7 +24,10 @@ export const moveDown = (matrix) => {
     for (let j = 0; j < nonZeroBlocks.length - 1; j++) {
       if (nonZeroBlocks[j] === nonZeroBlocks[j + 1]) {
         nonZeroBlocks[j] *= 2;
+
+        updateScore(nonZeroBlocks[j]);
         nonZeroBlocks[j + 1] = 0;
+        console.log(score.currentScore);
       }
     }
 

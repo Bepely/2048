@@ -1,4 +1,6 @@
 import { grid } from "../../state/gridState";
+import { score } from "../../state/scoreState";
+import { updateScore } from "../score";
 
 export const moveUp = (matrix) => {
   const size = matrix.length;
@@ -22,7 +24,9 @@ export const moveUp = (matrix) => {
     for (let j = 0; j < nonZeroBlocks.length - 1; j++) {
       if (nonZeroBlocks[j] === nonZeroBlocks[j + 1]) {
         nonZeroBlocks[j] *= 2;
+        updateScore(nonZeroBlocks[j]);
         nonZeroBlocks[j + 1] = 0;
+        console.log(score.currentScore);
       }
     }
 
@@ -34,7 +38,7 @@ export const moveUp = (matrix) => {
       nonZeroBlocks.push(0);
     }
 
-    //update row in the transposed matrix 
+    //update row in the transposed matrix
     for (let j = 0; j < size; j++) {
       transposedMatrix[i][j] = nonZeroBlocks[j];
     }

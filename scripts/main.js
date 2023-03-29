@@ -8,6 +8,7 @@ import { setGameDisplay } from "./apperance/gameDisplay";
 
 import "../styles/main.css";
 
+
 //init svg element
 setSvg();
 

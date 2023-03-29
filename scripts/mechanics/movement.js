@@ -9,6 +9,7 @@ import { moveRight } from "./movement/right";
 
 import { bridge } from "./bridge";
 
+
 //Make movement variables
 let size = 0;
 
@@ -34,10 +35,10 @@ export const movement = () => {
         moveDown(matrix);
         break;
     }
-
-    if (matrix !== grid.getMatrix()) {
+    if (JSON.stringify(matrix) !== JSON.stringify(grid.getMatrix())) {
       newBlock();
       bridge();
+
       //update movement matrix
       matrix = grid.getMatrix();
     }

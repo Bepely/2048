@@ -3,6 +3,7 @@
 import { grid } from "../state/gridState";
 import { colorBlock } from "../apperance/block";
 
+
 export const bridge = () => {
   const matrix = grid.getMatrix();
   const blocks = grid.svg.getAllBlocks();
@@ -22,4 +23,6 @@ export const bridge = () => {
       colorBlock(blockBacks[counter], matrix[i][j]);
     }
   }
+
+
 };

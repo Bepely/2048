@@ -1,5 +1,7 @@
 //move right script
 import { grid } from "../../state/gridState";
+import { score } from "../../state/scoreState";
+import { updateScore } from "../score";
 
 export const moveRight = (matrix) => {
   const size = matrix.length;
@@ -21,7 +23,9 @@ export const moveRight = (matrix) => {
     for (let j = 0; j < newRow.length - 1; j++) {
       if (newRow[j] === newRow[j + 1]) {
         newRow[j] *= 2;
+        updateScore(newRow[j]);
         newRow[j + 1] = 0;
+        console.log(score.currentScore)
       }
     }
 

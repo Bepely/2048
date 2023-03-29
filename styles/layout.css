@@ -1,33 +1,33 @@
 /* placing content */
-.grid{
-    display: grid;
-};
-
-.solo{
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr;
-};
-
-.multiHor{
-    grid-template-columns: auto;
-    grid-template-rows: 1fr;
-};
-
-.multiVer{
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
-};
-
-/*positioning content*/
-.centerItems{
-    align-items: center;
-    justify-items: center;
-
-    align-content: center;
-    justify-content: center;
+.grid {
+  display: grid;
 }
 
-.fullSpace{
-    width: 100%;
-    height: 100%;
+.solo {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+}
+
+.multiHor {
+  grid-template-columns: auto;
+  grid-template-rows: 1fr;
+}
+
+.multiVer {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto;
+}
+
+/*positioning content*/
+.centerItems {
+  align-items: center;
+  justify-items: center;
+
+  align-content: center;
+  justify-content: center;
+}
+
+.fullSpace {
+  width: 100%;
+  height: 100%;
 }
